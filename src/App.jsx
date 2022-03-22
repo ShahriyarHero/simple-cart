@@ -4,7 +4,8 @@ import Product from "./Product";
 import Products from "./Products";
 
 const App = () => {
-  const [cart, setCart] = useState([]);
+  const localCart = JSON.parse(localStorage.getItem("cart"));
+  const [cart, setCart] = useState(localCart || []);
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -13,14 +14,19 @@ const App = () => {
       .then((data) => setProducts(data.products));
   }, []);
 
+  const updateCart = (newCart) => {
+    localStorage.setItem("cart", JSON.stringify(newCart));
+    setCart(newCart);
+  };
+
   const addToCart = (product) => {
     const item = cart.find((item) => item.id === product.id);
 
     if (!item) {
-      return setCart([...cart, { ...product, quantity: 1 }]);
+      return updateCart([...cart, { ...product, quantity: 1 }]);
     }
 
-    setCart(
+    updateCart(
       cart.map((item) =>
         item.id == product.id
           ? { ...product, quantity: item.quantity + 1 }
@@ -31,7 +37,7 @@ const App = () => {
 
   const removeProduct = (productId) => {
     const newCart = cart.filter((item) => item.id !== productId);
-    setCart(newCart);
+    updateCart(newCart);
   };
 
   const removeSingle = (productId) => {
