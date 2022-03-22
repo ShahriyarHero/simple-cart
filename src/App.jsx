@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import Cart from "./Cart";
-import Product from "./Product";
 import Products from "./Products";
 
 const App = () => {
@@ -58,13 +56,11 @@ const App = () => {
 
   return (
     <div className="max-w-3xl mx-auto">
-      <Products products={products} addToCart={addToCart} />
-      <br />
-
-      <Cart
-        cartItems={cart}
-        removeProduct={removeProduct}
+      <Products
+        products={products}
         addToCart={addToCart}
+        cart={cart}
+        removeProduct={removeProduct}
         removeSingle={removeSingle}
       />
     </div>
