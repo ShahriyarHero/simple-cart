@@ -13,7 +13,12 @@ const Cart = (props) => {
 
   return (
     <div className="p-4">
-      <h1 className="text-3xl text-center">Cart</h1>
+      <div className="text-3xl text-center flex justify-center items-center">
+        Cart
+        <span className="text-white bg-black px-4 py-1 ml-2 rounded-full text-sm">
+          {cartItems.reduce((quantity, item) => quantity + item.quantity, 0)}
+        </span>
+      </div>
 
       {cartItems.length == 0 ? (
         <h1 className="text-red-500 text-center my-5 font-bold">

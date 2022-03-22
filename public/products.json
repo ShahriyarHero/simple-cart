@@ -1,7 +1,10 @@
 {
-    "products": [
-        {"id": 1, "name": "Football", "price": 100},
-        {"id": 2, "name": "Surf board", "price": 179},
-        {"id": 3, "name": "Running shoes", "price": 95}
-    ]
+  "products": [
+    { "id": 1, "name": "Football", "price": 100 },
+    { "id": 2, "name": "Surf board", "price": 179 },
+    { "id": 3, "name": "Running shoes", "price": 95 },
+    { "id": 4, "name": "Alu", "price": 10 },
+    { "id": 6, "name": "Mula", "price": 15 },
+    { "id": 7, "name": "Begun", "price": 20 }
+  ]
 }
