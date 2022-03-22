@@ -21,7 +21,7 @@ const Cart = (props) => {
         </h1>
       ) : null}
 
-      <div className="mt-5 flex flex-col gap-3">
+      <div className="mt-5 flex flex-col gap-3 transition-all">
         {cartItems.map((product, index) => (
           <CartItem
             key={index}

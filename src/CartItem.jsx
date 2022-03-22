@@ -4,7 +4,7 @@ const CartItem = (props) => {
   const { product } = props;
 
   return (
-    <div className="p-4 bg-slate-200 grid grid-cols-7">
+    <div className="p-4 bg-slate-200 grid grid-cols-7 items-center">
       <h1 className="text-xl col-span-2">{product.name}</h1>
       <p>{product.price}</p>
       <p>{product.quantity}</p>
