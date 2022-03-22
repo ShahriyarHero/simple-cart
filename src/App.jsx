@@ -4,14 +4,16 @@ import Product from "./Product";
 import Products from "./Products";
 
 const App = () => {
-  const localCart = JSON.parse(localStorage.getItem("cart"));
-  const [cart, setCart] = useState(localCart || []);
+  const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     fetch("/products.json")
       .then((response) => response.json())
       .then((data) => setProducts(data.products));
+
+    const localCart = JSON.parse(localStorage.getItem("cart"));
+    setCart(localCart || []);
   }, []);
 
   const updateCart = (newCart) => {
